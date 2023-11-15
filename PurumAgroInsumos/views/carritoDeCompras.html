@@ -1,43 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
-    <link rel="stylesheet" type="text/css" href="static/css/carritoDeCompras.css">
+    <title>Carrito de Compra</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="static/css/app.css">
+    <link rel="stylesheet" href="static/css/carritoDeCompras.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="top-header">
             <div class="logo">
                 <img src="static/images/purumredondo.png" alt="Logo" class="img-logo">
-               
             </div>
-
             <div class="burger-menu">
-                <nav id="menu">
+                <nav class="menu" id="menu">
                     <ul>
-                        <li><a href="/">HOME</a></li>
-                        <li><a href="#">ABOUT</a></li>
+                        <li><a href="/">INICIO</a></li>
                         <li><a href="#">PRODUCTOS</a></li>
+                        <li><a href="/">NOSOTROS</a></li>
                         <li><a href="#">CONTACTO</a></li>
-                        <li><a href="/login" class="link">LOG IN</a></li>
-                        <li><a href="" class="link">SING IN</a></li>
-                        <li><a href="/carrito">MI CARRITO</a></li>
+                        <li><a href="/login" class="link"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+                        <li><a href="/register" class="link"><i class="fa-solid fa-address-card"></i></a></li>
+                        <li><a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
                     </ul>
                 </nav>
             </div>
-        </div>
-        <div class="search">
-            <form action="#" method="GET" class="form-search">
-                <input type="text" placeholder="Buscar">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
         </div>
     </header>
 
@@ -93,30 +85,88 @@
                 <span>Total:</span>
                 <span>$50.00</span>
                 <button>Realizar Compra</button>
+        <div class="shop">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo de un producto en el carrito -->
+                    <tr>
+                        <td>
+                            <img class="producto" src="https://previews.123rf.com/images/setory/setory1901/setory190100049/126340532-icono-de-fertilizante-vectorial-para-centro-de-jardiner%C3%ADa-de-productos-de-dise%C3%B1o-y-jardiner%C3%ADa.jpg" alt="Fertilizante" class="product-image">
+                            Fertilizante
+                        </td>
+                        <td>$20.00</td>
+                        <td>
+                            <input type="number" value="1" min="1">
+                        </td>
+                        <td>
+                            <button class="btn-delete">Eliminar</button>
+                        </td>
+                    </tr>
+    
+                    <!-- Otro producto en el carrito -->
+                    <tr>
+                        <td>
+                            <img class="producto" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUSFRISFRUZGBUUFRoaGBQYGBgYERoYGRgaGRgZGBgeIy4lHR4rHxoZJzomKy8xNTU1GiQ7QDszPy40NTEBDAwMEA8QHBISHzQrJCQxNjo6NDY0NDQ1MTQ6PzY1PzU0Pzc0NzU0NDE0MTE0NDQxMTExNDQ0NDQ0NDQ0NDQ0Mf/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABAUBAgMHBv/EAEQQAAEDAQQFCAYGCwADAQAAAAEAAhEDBBIhMQVBUWGRBhMicYGxwdEVMkJSU6EHFGJykqIWIzNUgpOywtLh8DRjcyT/xAAaAQEBAQEBAQEAAAAAAAAAAAAAAQIDBAUG/8QAKBEBAAICAQMDAwUBAAAAAAAAAAECAxFRBBJBExQxBRUhUmGRobEi/9oADAMBAAIRAxEAPwD2ZERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBFhEGUWEQZREQEREBERAREQEREBERAREQEREBERAREQEREBERBqQvnOW+n/qFmNVsGo5wbTBEtvHEkiRgAD2wF+o3tMjFvVciNRtmxvXbHXpknEAD0O1Fu2NXEEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf/9k=" alt="Producto 2" class="product-image">
+                            Producto 2
+                        </td>
+                        <td>$30.00</td>
+                        <td>
+                            <input type="number" value="2" min="1">
+                        </td>
+                        <td>
+                            <button class="btn-delete">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Resumen del carrito -->
+            <div class="cart-summary">
+                <h2>Resumen del Carrito</h2>
+                <div class="total">
+                    <span>Total:</span>
+                    <span>$50.00</span>
+                </div>
+                <div class="checkout">
+                    <button>Realizar Compra</button>
+                </div>
             </div>
             <!-- Este div ahora está cerrado correctamente -->
         </div>
         </div>
+        
+
+        
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-section about">
-                <h1 class="logo-text"><span>LOGO</span>Texto</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    aliquam, purus sit amet volutpat.
-                </p>
-                <div class="contact">
-                    <span><i class="fas fa-phone"></i> &nbsp;123-456-789</span>
-                    <span><i class="fas fa-envelope"></i> &nbsp;info@example.com</span>
-                </div>
-                <div class="socials">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
+            <div class="footer-section-img">
+                <img src="static/images/purumredondo.png" alt="">
+            </div>
+
+            <div class="footer-section-info">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                    aliquam, purus sit amet volutpat.</p>
+            </div>
+                
+            <div class="footer-section-contact">
+                <span><i class="fas fa-phone"></i> &nbsp;123-456-789</span>
+                <span><i class="fas fa-envelope"></i> &nbsp;info@example.com</span>
+            </div>
+            
+            <div class="footer-section-socials">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </footer>

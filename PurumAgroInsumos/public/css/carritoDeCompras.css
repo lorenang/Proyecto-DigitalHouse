@@ -1,5 +1,5 @@
 body {
-   
+    background-image: url('https://simientedisidente.com/wp-content/uploads/2019/08/field-2572133-1024x683.jpg');
     background-size: cover;
     background-position: center; /* Centra la imagen en el fondo */
     background-attachment: fixed; /* Opcional: Fija la imagen de fondo en su lugar */
@@ -18,16 +18,13 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #fff;
+    background-color: #b4fea5;
     padding: 10px;
     text-align: center;
     z-index: 1000;
     display: flex;
-    justify-content: space-evenly;
-    flex-direction: column-reverse;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: flex-end;
+    justify-content: space-around; /* Cambiado a space-around para centrar los elementos */
+    align-items: center;
 }
 
 .logo {
@@ -103,28 +100,31 @@ main {
     border-radius: 5%;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    max-width: 800px; /* Ajusta el tamaño según sea necesario */
     margin: 20px auto;
-    margin-bottom: 100px;
 }
 
-table {
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.shop table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-th, td {
+.shop table th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
 
-th {
+.shop table th {
     background-color: #f2f2f2;
 }
 
-button {
+.btn-delete {
     background-color: #39b54a;
     color: #fff;
     border: none;
@@ -141,7 +141,7 @@ button {
     border-radius: 50%; /* Aplica un borde redondeado a la imagen */
 }
 footer {
-    background-color: #39b54a;;
+    background-color: #126c00;
     padding: 10px;
     text-align: center;
     position: fixed;
@@ -176,14 +176,4 @@ footer p {
     margin-right: auto; /* Empuja el icono al extremo izquierdo */
     margin-left: -200px; /* Agrega un pequeño margen a la izquierda para separarlo del borde */
     margin-top: 15px;
-}
-.btnEliminar{
-    display: flex;
-}
-.cart-summary{
-    display: flex;
-    flex-direction: column;
-    align-items: center;}
-.checkout{
-display: flex;
 }

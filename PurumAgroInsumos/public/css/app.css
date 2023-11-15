@@ -1,91 +1,114 @@
-body {
-    background-image: url('https://simientedisidente.com/wp-content/uploads/2019/08/field-2572133-1024x683.jpg');
-    background-size: cover;
-    background-position: center; /* Centra la imagen en el fondo */
-    background-attachment: fixed; /* Opcional: Fija la imagen de fondo en su lugar */
-    background-repeat: no-repeat;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    min-height: 100vh; /* Agrega esto para asegurar que el cuerpo tenga al menos la altura de la ventana gráfica (viewport height) */
-    margin: 0;
+:root {
+    --gris-oscuro: #666;
+    --verde: #39b54a;
+
+    --black: #000;
+    --white: #fff;
+
+    --font-family: 'Roboto', sans-serif;
+    --size-cuerpo: 12px;
+    --size-titulares: 24px;
+    --size-precios: 18px;
+    --size-descuentos: 16px;
+    --size-descripcion: 16px;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #b4fea5;
-    padding: 10px;
-    text-align: center;
-    z-index: 1000;
+* {
+    font-family: var(--font-family);
+    
+}
+
+body {
+    width: 100%;
     display: flex;
-    justify-content: space-around; /* Cambiado a space-around para centrar los elementos */
+    justify-content: space-between;
     align-items: center;
+    height: auto;
+    min-height: 100vh; /* Agrega esto para asegurar que el cuerpo tenga al menos la altura de la ventana gráfica (viewport height) */
+    margin: 0;
+    flex-direction: column;
+}
+
+/*HEADER*/
+header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .logo {
     display: flex;
     align-items: center;
+    margin-left: 20px;
 }
-
 .img-logo {
-    width: 70px;
-    margin-right: 70px;
+    height: auto;
+    width: 80px;
 }
 
-nav ul {
+.burger-menu {
+    align-items: center;
     display: flex;
+}
+
+.menu ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 12px;
 }
 
-nav ul li {
-    margin-right: 15px;
-   
-}
 
-a {
+.menu ul li a {
+    font-weight: bold;
     text-decoration: none;
-    color: #0a8c04;
+    color: var(--black);
     padding: 8px 15px;
-    border: 1px solid #007bff;
-    border-radius: 3px;
     transition: background-color 0.3s, color 0.3s;
 }
 
-a:hover {
-    background-color: #00ff1e;
-    color: #fff;
+.menu ul li a:hover {
+    color: var(--verde);
     text-decoration: none;
 }
 
 
 
-
-
-
+/*buscador*/
 .search {
-    margin-top: 10px;
+    align-items: center;
+    display: flex;
+    width: 80%;
 }
 
-form.form-search {
+.search .form-search {
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    width: 100%;
 }
 
-form.form-search input[type="text"] {
+.search .form-search input[type="text"] {
     padding: 8px;
-    margin-right: 5px;
+    margin: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    width: 80%;
 }
 
-form.form-search button {
+.search .form-search button {
     background-color: #39b54a;
     color: #fff;
     border: none;
@@ -95,81 +118,64 @@ form.form-search button {
 }
 
 main {
-    background-color: #fff;
-    border: 2px solid green;
-    border-radius: 5%;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    max-width: 800px; /* Ajusta el tamaño según sea necesario */
-    margin: 20px auto;
-    margin-bottom: 100px;
-}
-
-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    gap: 15px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-button {
-    background-color: #39b54a;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.producto{
-    width: 75px; /* Ajusta el tamaño de la imagen según sea necesario */
-    height: auto; /* Mantiene la proporción original de la imagen */
-    margin-right: 10px;
-    border-radius: 50%; /* Aplica un borde redondeado a la imagen */
-}
+/*FOOTER*/
 footer {
     background-color: #6af24f;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000;
-    
+    width: 100%;  
 }
-footer p {
-    margin: 5px 0; /* Ajusta el margen según sea necesario */
-    font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
-    color: #333; /* Cambia el color del texto según tus preferencias */
-    margin-top: 20px;
-    margin-bottom: 15px
-}
-.socials,
-.contact {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 20px; /* Ajusta el margen según sea necesario */
-    padding-right: 20px; /* Agrega padding a la derecha para separar de los párrafos */
-    border-right: 1px solid #ccc; /* Línea divisoria entre la sección de redes y el contacto */
-}
-.burger-menu {
-    display: flex;
+
+.footer-content {
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
 }
-.img-logo {
-    height: 90px;
-    width: auto;
-    margin-right: auto; /* Empuja el icono al extremo izquierdo */
-    margin-left: -200px; /* Agrega un pequeño margen a la izquierda para separarlo del borde */
-    margin-top: 15px;
+
+.footer-section-img img {
+    width: 150px;
+    height: 150px;
 }
+.footer-section-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section-socials {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 15px;
+}
+.footer-section-socials a{
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.footer-section-socials a:hover{
+    color: var(--white);
+    font-size: 25px;
+}
+
+/*----------------------------------------*/
+
+
+/*principales articulos*/
+
+
+
+
+
+
+
+
