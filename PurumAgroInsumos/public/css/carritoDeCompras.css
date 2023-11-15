@@ -1,5 +1,5 @@
 body {
-    background-image: url('https://simientedisidente.com/wp-content/uploads/2019/08/field-2572133-1024x683.jpg');
+   
     background-size: cover;
     background-position: center; /* Centra la imagen en el fondo */
     background-attachment: fixed; /* Opcional: Fija la imagen de fondo en su lugar */
@@ -18,13 +18,16 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #b4fea5;
+    background-color: #fff;
     padding: 10px;
     text-align: center;
     z-index: 1000;
     display: flex;
-    justify-content: space-around; /* Cambiado a space-around para centrar los elementos */
-    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-end;
 }
 
 .logo {
@@ -126,8 +129,9 @@ button {
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 3px;
+    border-radius: 7px;
     cursor: pointer;
+    border: #00ff1e;
 }
 
 .producto{
@@ -137,7 +141,7 @@ button {
     border-radius: 50%; /* Aplica un borde redondeado a la imagen */
 }
 footer {
-    background-color: #126c00;
+    background-color: #39b54a;;
     padding: 10px;
     text-align: center;
     position: fixed;
@@ -172,4 +176,14 @@ footer p {
     margin-right: auto; /* Empuja el icono al extremo izquierdo */
     margin-left: -200px; /* Agrega un pequeño margen a la izquierda para separarlo del borde */
     margin-top: 15px;
+}
+.btnEliminar{
+    display: flex;
+}
+.cart-summary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;}
+.checkout{
+display: flex;
 }
