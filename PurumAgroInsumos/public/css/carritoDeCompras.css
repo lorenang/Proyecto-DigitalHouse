@@ -1,5 +1,5 @@
 body {
-    background-image: url('https://simientedisidente.com/wp-content/uploads/2019/08/field-2572133-1024x683.jpg');
+  
     background-size: cover;
     background-position: center; /* Centra la imagen en el fondo */
     background-attachment: fixed; /* Opcional: Fija la imagen de fondo en su lugar */
@@ -33,8 +33,8 @@ header {
 }
 
 .img-logo {
-    width: 70px;
-    margin-right: 70px;
+    width: 50px;
+    margin-right: 50px;
 }
 
 nav ul {
@@ -100,8 +100,15 @@ main {
     border-radius: 5%;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
+    margin: -152px auto;
+    max-width: 600px; /* Ajusta este valor según sea necesario */
+    margin-left: 20px; /* Ajusta este valor según sea necesario */
+    margin-right: 20px; /* Ajusta este valor según sea necesario */
+    margin-bottom: 20px; /* Ajusta este valor según sea necesario */
 }
+
+
+
 
 .cart-summary {
     display: flex;
@@ -149,8 +156,10 @@ footer {
     bottom: 0;
     width: 100%;
     z-index: 1000;
-    
+    margin-top: 200px;
+    height: 250px;
 }
+
 footer p {
     margin: 5px 0; /* Ajusta el margen según sea necesario */
     font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
@@ -171,9 +180,26 @@ footer p {
     align-items: center;
 }
 .img-logo {
-    height: 90px;
+    height: 60px;
     width: auto;
     margin-right: auto; /* Empuja el icono al extremo izquierdo */
     margin-left: -200px; /* Agrega un pequeño margen a la izquierda para separarlo del borde */
     margin-top: 15px;
 }
+.footer-section-img{
+    height: 60px;
+    width: auto; 
+}
+.footer-section-img img {
+    width: 100px;
+    height: auto;
+    flex-direction: initial;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    align-items: center;
+    flex-wrap: nowrap;}
