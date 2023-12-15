@@ -1,0 +1,47 @@
+
+.shop {
+    height: auto;
+    width: 60%;
+    border: 2px solid var(--verde);
+    border-radius: 1%;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+}
+
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.shop table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.shop table th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.shop table th {
+    background-color: #f2f2f2;
+}
+
+.btn-delete {
+    background-color: #39b54a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.producto{
+    width: 75px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-right: 10px;
+    border-radius: 50%; /* Aplica un borde redondeado a la imagen */
+}

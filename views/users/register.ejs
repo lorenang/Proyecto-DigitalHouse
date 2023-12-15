@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../head.ejs') %>
+<body>
+    <%- include('../header.ejs') %>
+    <div class="singin-container">
+        <h1>Bienvenidos a Purum</h1>
+        <form>
+            <h2>Te invitamos a ser parte</h2>
+            <input type="text" placeholder="Nombre completo" />
+            <input type="text" placeholder="Usuario" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Contraseña" />
+            <input type="password" placeholder="Repite tu contraseña" />
+            
+            <input class="btn" type="submit" value="Registrarme">
+        </form>
+        <br>
+        <a href="http://localhost:4000/login"> Ya tienes cuenta?</a>
+    </div>
+
+    <%- include('../footer.ejs') %>
+
+</body>
+</html>

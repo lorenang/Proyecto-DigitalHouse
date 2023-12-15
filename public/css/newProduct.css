@@ -1,0 +1,16 @@
+.div-form-create {
+    border: 1px solid var(--verde);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.div-form-create div{
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+.div-form-create h2, .div-button-submit {
+    text-align: center;
+}
+
