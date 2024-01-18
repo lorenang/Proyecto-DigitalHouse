@@ -14,6 +14,19 @@ app.listen(PORT, () => {
   console.log(`click para dirigirte al sitio: http://localhost:${PORT}/`);
 });
 
+
+app.post("/login", (req, res) => {
+  const username= req.body.username
+  const password= req.body.password
+
+  if (username, password = false) {
+    
+    res.redirect("/login?error=invalid_credentials")
+  }else{
+    res.redirect("/")
+  }
+})
+
 // app.get('/', (req,res)=>{
 //     res.sendFile(__dirname + '/views/index.html');
 // });
