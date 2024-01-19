@@ -30,10 +30,16 @@ Eliminar la idea de que la coordinación solo es responsabilidad de algunos miem
 Participantes:
 
 Lorena
+
 Matías
-Melisa (sin contribuciones hasta el momento)
+
+Melisa (sin contribuciones en codigo hasta el momento)
+
 Leandro (en proceso)
+
 Francy (ya no contesta los mensajes)
+
+
 Puntos de Mejora:
 
 Comenzar a hacer:
