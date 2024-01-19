@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../head.ejs') %>
+<body>
+    <%- include('../header.ejs') %>
+    <main>
+        <section class="productos">
+            <div class="div_title">
+                <h1>Lista de Productos</h1>
+            </div>
+            <div class="div-products">
+                <table>
+                    <thead>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <% products.forEach(product => { %>
+                            <tr>
+                                <td><img src="/images/<%= product.image %>" alt="<%= product.name %>" class="product-image"></td>
+                                <td><%= product.name %></td>
+                                <td><%= product.description %></td>
+                                <td>$<%= product.price %></td>
+                                <td><%= product.stock %></td>
+                                <td class="product_acciones">
+                                    <a href="/details/<%= product.id %>"><button class="productacc"><i class="fa-solid fa-circle-info"></i></button></a>
+                                    <a href="/editproduct/<%= product.id %>"><button class="productacc"><i class="fa-solid fa-square-pen"></i></button></a>
+                                    <form action="/producto/eliminar/<%= product.id %>" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este producto?');">
+                                        <button class="productacc" type="submit" class="btn-delete-product"><i class="fa-solid fa-trash-can"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../footer.ejs') %>
+</body>
+</html>

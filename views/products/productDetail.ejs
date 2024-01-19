@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('../head.ejs') %>
-    <body>
+
+<%- include('../head.ejs') %>
 <body>
     <%- include('../header.ejs') %>
     <main>
-        <div class="product-page">
-            <h1>Abono orgánico para hortalizas</h1>
-            <img src="images/Abono-Organico-para-Hortalizas.jpg" alt="abono">
-    
-            <div class="product-details">
-                <div class="product-images">
-                <!-- imágenes del producto -->
-                </div>
-                <div class="product-info">
-                    <h2>Descripción del Producto</h2>
-                    <p>Lombricompost recubierto aglutina para retener microorganismos del suelo</p>
-                    <h2>Precio</h2>
-                    <p>$1500.00</p>
-                    <!-- Otras informaciones como disponibilidad, reseñas, personalización, etc. -->
-                </div>
+        <section class="producto-detail">
+            <h1>Detalles del Producto</h1>
+
+            <div class="product-page">
+                <h2><%= product.name %></h2>
+                <p>Descripción: <%= product.description %></p>
+                <p>Categoría: <%= product.category %></p>
+                <p>Precio: <%= product.price %></p>
+                <p>Stock: <%= product.stock %></p>
+                <img src="/images/<%= product.image %>" alt="<%= product.name %>">
             </div>
-    
+
             <button onclick="agregarAlCarrito()" class="cart">Agregar al Carrito</button>
-        </div>
-        <!-- Puedes incluir productos relacionados aquí -->
-        <div class="related-products">
-            <h2>Productos Relacionados</h2>
-            <!-- Listado de productos relacionados -->
-        <script>
-            function agregarAlCarrito() {
-            alert("¡Producto agregado al carrito")}
-        </script>
+
+            <div class="related-products">
+                <h2>Productos Relacionados</h2>
+            </div>
+        </section>
     </main>
-    
+
     <%- include('../footer.ejs') %>
+
 </body>
 </html>
+    

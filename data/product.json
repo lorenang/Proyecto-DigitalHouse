@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "id": 3,
+      "name": "Wine - Rhine Riesling Wolf Blass",
+      "price": 381.59,
+      "expiration_date": "11/23/2024",
+      "description": "In congue. Etiam justo. Etiam pretium iaculis justo.\n\nIn hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+      "stock": 14,
+      "category": "",
+      "image": "productImage-1703116183640.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Mince Meat - Filling",
+      "price": 36.39,
+      "expiration_date": "7/7/2023",
+      "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+      "stock": 17,
+      "category": "",
+      "image": "productImage-1703116183640.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Shrimp - Baby, Cold Water",
+      "price": 332.72,
+      "expiration_date": "3/6/2024",
+      "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+      "stock": 7,
+      "category": "",
+      "image": "productImage-1703116183640.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Wine - Magnotta, White",
+      "price": 620.55,
+      "expiration_date": "8/24/2025",
+      "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+      "stock": 77,
+      "category": "",
+      "image": "productImage-1703116183640.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Chevril",
+      "price": 981.38,
+      "expiration_date": "7/31/2024",
+      "description": "Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+      "stock": 54,
+      "category": "",
+      "image": "productImage-1703116183640.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Mace Ground",
+      "price": 113.11,
+      "expiration_date": "8/6/2025",
+      "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+      "stock": 69,
+      "category": "",
+      "image": "productImage-1703116183640.jpg"
+    },
+    {
+      "id": 12,
+      "name": "probandosisis",
+      "description": "probando alta",
+      "category": "Ecologico",
+      "price": "12",
+      "stock": "1",
+      "image": "productImage-1703131714296.jpg"
+    },
+    {
+      "id": 13,
+      "name": "probando",
+      "description": "probando alta",
+      "category": "Ecologico",
+      "price": "56",
+      "stock": "1",
+      "image": "productImage-1703131693201.jpg"
+    },
+    {
+      "id": 14,
+      "name": "a",
+      "description": "a",
+      "category": "a",
+      "price": "78",
+      "stock": "7",
+      "image": "productImage-1703132329552.jpg"
+    },
+    {
+      "id": 15,
+      "name": "ultima prueba",
+      "description": "a",
+      "category": "a",
+      "price": "78",
+      "stock": "3",
+      "image": "productImage-1703132361617-812603675.jpg"
+    }
+  ]
+}
