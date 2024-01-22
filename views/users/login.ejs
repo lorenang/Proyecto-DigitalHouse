@@ -3,24 +3,56 @@
     <%- include('../head.ejs') %>
     <body>
         <%- include ('../header.ejs') %>
-        <main>
-            <div class="login-container">
-                <h1>Bienvenidos a Purum</h1>
-                <form>
-                    <label for="username"><i class="fa-regular fa-address-card" style="color: #429f28;"></i> Usuario:</label>
-                    <input type="text" id="username" name="username" placeholder="Tu usuario" required>
+        <main class="mainlogin">
+            <p class="rutahome"><a href="/">Home</a> / login</p>
     
-                    <label for="password"><i class="fa-regular fa-eye-slash" style="color: #429f28;"></i></i> Contraseña: </label>
-                    <input type="password" id="password" name="password" placeholder="Tu contraseña" required>
+                <form action="/user/login" method="POST">
     
-                    <label for="remember">Recordarme <input type="checkbox" id="remember" name="remember"></label>
+                    <% if (locals.authError) {%>
+                        <p style="color:red"> 
+                            Para acceder a la página solicitada primero debes loguearte 
+                        </p>
+                    <% } %>
     
-                    <a  class="buttonDecoration" href="/">Iniciar sesión</a>
+                    <label for="email">Email</label> 
+                    <input type="email" name="email" id="email">
+    
+                    <% if (typeof errors != "undefined") {%>
+                        <% for (let i=0 ; i < errors.length ; i++) {%>
+                            <p style="color:red"> <%= errors[i].msg  %> </p>
+                        <% } %>
+                    <% } %>
+    
+                    <% if (typeof errors != "undefined" && errors.email) {%>
+                        <p style="color:red"> <%= errors.email.msg  %> </p>
+                    <% } %>
+    
+                    <br>
+                    <br>
+                    <label for="contraseña">Contraseña</label> 
+                    <input type="password" name="contraseña" id="contraseña">
+    
+                    <% if (typeof errors != "undefined" && errors.contraseña) {%>
+                        <p style="color:red"> <%= errors.contraseña.msg  %> </p>
+                    <% } %>
+    
+                    <p class="olvidasteclave"><a href="#">¿Olvidaste tu contraseña?</a></p>
+                    <br>
+                    <br>
+                    <div class="opcionrecordarme">
+                        <label for="recordarme">Recordarme</label>
+                        <input type="checkbox" name="recordarme">
+                    </div>
+                    <br>
+                    <br>
+                    <button type="submit">INICIAR SESIÓN</button>
+                    <br>
+                    <br>
+                    <p class="notenescuenta">¿No tenés cuenta? <br>
+                    <a href="/user/register"><strong>Crear cuenta</strong></a></p>
                 </form>
-                <br>
-                <a class="buttonDecoration" href="#">¿Olvidaste tu contraseña?</a>
-            </div>
-        </main>
+            
+        </main> 
         <%- include ('../footer.ejs') %>
     </body>
 </html>

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const usersController= require('../controllers/usersController')
 const mainController = require('../controllers/mainController')
 
 
@@ -20,5 +20,9 @@ router.post('/productos/crear', mainController.procesarCreate);
 router.post('/producto/editar/:id', mainController.procesarEdit);
 router.post('/producto/eliminar/:id', mainController.procesarEliminar);
 
+// router.get('/usersDetail/:id', usersController.users);
+// router.post('/users/crear', usersController.userprocesarCreate);
+// router.post('/users/editar/:id', usersController.userprocesarEdit);
+// router.post('/users/eliminar/:id', usersController.userprocesarEliminar);
 
 module.exports = router;

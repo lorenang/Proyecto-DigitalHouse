@@ -3,21 +3,55 @@
     <%- include('../head.ejs') %>
 <body>
     <%- include('../header.ejs') %>
-    <div class="singin-container">
-        <h1>Bienvenidos a Purum</h1>
-        <form>
-            <h2>Te invitamos a ser parte</h2>
-            <input type="text" placeholder="Nombre completo" />
-            <input type="text" placeholder="Usuario" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Contraseña" />
-            <input type="password" placeholder="Repite tu contraseña" />
+   
+    <main class="mainlogin">
+        <p class="rutahome"><a href="/">Home</a> / Registro</p>
+        <form action="/user/register" method="POST" id="formRegistro" enctype="multipart/form-data">
+           
+            <label for="nombre">Nombre</label> 
+            <input type="text" name="nombre" id="nombre" value="<%= locals.oldData ? oldData.firstName : null %>">
+            <% if (locals.errors && errors.nombre) { %>
+                <p class="error"> <%= errors.nombre.msg %></p>
+            <% } %>
+            <br>
+            <label for="apellido">Apellido</label> 
+            <input type="text" name="apellido" id="apellido" value="<%= locals.oldData ? oldData.lastName : null %>">
+            <% if (locals.errors && errors.apellido) { %>
+                <p class="error"> <%= errors.apellido.msg %></p>
+            <% } %>       
+            <br>
+            <label for="email">Email</label> 
+            <input type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>">
+            <% if (locals.errors && errors.email) { %>
+                <p class="error"> <%= errors.email.msg %></p>
+            <% } %> 
             
-            <input class="btn" type="submit" value="Registrarme">
-        </form>
-        <br>
-        <a href="http://localhost:4000/login"> Ya tienes cuenta?</a>
-    </div>
+
+            <label for="contrasenia">Contraseña</label> 
+            <input type="password" name="contrasenia" id="contrasenia">            
+            <% if (locals.errors && errors.contrasenia) { %>
+                <p class="error"> <%= errors.contrasenia.msg %></p>
+            <% } %> 
+            <br>
+            <label for="confirmar">Confirmar contraseña</label>  
+            <input type="password" name="confirmar" id="confirmar">    
+            <% if (locals.errors && errors.confirmar) { %>
+                <p class="error"> <%= errors.confirmar.msg %></p>
+            <% } %>         
+            <br>
+            <label for="foto">Imagen</label>
+            <input class="margen-ancho" type="file" id="foto" name="foto" accept="image/*" value="<%= locals.image ? image : null %>">
+            <% if (locals.errors && errors.foto) { %>
+                <p class="error"> <%= errors.foto.msg %></p>
+            <% } %> <br>
+            
+            <input type="text" name="categoria" id="categoria" value="user" style="visibility: hidden;">    
+         
+            <button type="submit">REGISTRARME</button>
+            <br>
+            </form>
+    </main>
+
 
     <%- include('../footer.ejs') %>
 

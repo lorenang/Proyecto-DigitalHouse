@@ -2,11 +2,22 @@ const express = require('express');
 const app = express();
 const multer = require('multer');
 const path = require('path');
+const session= require('express-session');
+const sessionMiddleware = require ("./middlewares/sesionMiddleware");
+const cookies = require ("cookie-parser");
+const methodOverride = require('method-override');
+
 const mainRoutes = require('./routes/mainRoutes');
 const mainController = require('./controllers/mainController');
+const usersController= require('./controllers/usersController');
+const routerUser=require("./routes/userRoutes");
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
+
 // Configuración de Multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -19,7 +30,9 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-app.post('/productos/crear', upload.single('productImage'), (req, res) => {
+
+
+app.post('/productos/crear', upload.single('Image'), (req, res) => {
   console.log('Procesando creación de producto...');
   mainController.procesarCreate(req, res);
 });
@@ -30,10 +43,24 @@ app.post('/producto/editar/:id', upload.single('productImage'), (req, res) => {
 app.post('/producto/eliminar/:id', mainController.procesarEliminar);
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
+
+
 
 // Configurar EJS como motor de plantillas
 app.set('view engine', 'ejs');
 app.use('/', mainRoutes);
+
+app.use(session({secret: "texto cualquiera", resave: false, saveUninitialized: false}));
+app.use(cookies());
+app.use(sessionMiddleware);
+
+app.use('/user', routerUser);
+
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`click para dirigirte al sitio: http://localhost:${PORT}/`);
