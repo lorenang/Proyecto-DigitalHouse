@@ -1,0 +1,31 @@
+<header>
+    <div class="top-header">
+        <div class="logo">
+            <img src="/images/purumredondo.png" alt="Logo" class="img-logo">
+        </div>
+
+        <div class="burger-menu">
+            <nav class="menu" id="menu">
+                <ul>
+                    <li><a href="/">INICIO</a></li>
+                    <li><a href="/products">PRODUCTOS</a></li>
+                    <li><a href="/">NOSOTROS</a></li>
+                    <li><a href="#">CONTACTO</a></li>
+                    <% if (user) { %>
+                        <li><a href="/profile/<%= user.username %>"><%= user.username %></a></li>
+                        <li><a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    <% } else { %>
+                        <li>
+                            <a href="/login" class="link"><i class="fa-solid fa-right-to-bracket"></i></a>
+                        </li>
+                        <li>
+                            <a href="/register" class="link"><i class="fa-solid fa-address-card"></i></a>
+                        </li>
+                    <% } %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+</header>

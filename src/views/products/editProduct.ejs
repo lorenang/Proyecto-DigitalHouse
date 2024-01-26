@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../head.ejs') %>
+    <%- include('../partials/head.ejs') %>
 <body>
-    <%- include('../header.ejs') %>
+    <%- include('../partials/header.ejs') %>
     <main>
         
         <form action="/producto/editar/<%= product.id %>" method="post" enctype="multipart/form-data">
@@ -41,6 +41,6 @@
             </div>
         </form> 
     </main>
-    <%- include('../footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 </body>
 </html>

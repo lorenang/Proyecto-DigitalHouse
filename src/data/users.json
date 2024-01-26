@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullname": "Lorena Gomez",
+      "username": "asas",
+      "email": "lorena.natali18@gmail.com",
+      "password": "$2b$10$kwFUu8B0fwQxScGps/ZeTeE8GVjBqbCE4ZmZPHj4z7rBRBH9danvW"
+    },
+    {
+      "id": 2,
+      "fullname": "Lorena Natali Gomez",
+      "username": "lngomez",
+      "email": "lorena.natali18@gmail.com",
+      "password": "$2b$10$fZDkQpZ5D9uBTQ08Ya2aiuIEr36vwXq6ND0QelP32srFthXDPM87u",
+      "image": "profileImage-1706134069980-967111009.jpg"
+    },
+    {
+      "id": 3,
+      "fullname": "Lorena Natali Gomez",
+      "username": "lgomez",
+      "email": "lorena.natali18@gmail.com",
+      "password": "$2b$10$5RknUf4xOWr2ccO5IBsjAepWhsA7dHChJxwdAkezGDLwrANmuUK56",
+      "image": "profileImage-1706142090152-39362420.jpg"
+    },
+    {
+      "id": 4,
+      "fullname": "Lorena Gomez",
+      "username": "ffgomez89",
+      "email": "lorena.natali18@gmail.com",
+      "password": "$2b$10$ai06hNN/LKQRjkeqNctnw.EnIbU/jdj3LfDSS7VOqtmZyWqlU3UF6",
+      "image": "profileImage-1706162259316-513899966.jpg"
+    }
+  ]
+}

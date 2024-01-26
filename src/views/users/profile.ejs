@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+        <section class="profile-detail">
+            <h1>Bienvenido, <%= user.username %></h1>
+
+            <h1>DATOS DEL USUARIO</h1>
+
+            <div class="product-page">
+                <h2>Nombre: <%= user.fullname %></h2>
+                <h2>Usuario: <%= user.username %></h2>
+                <h2>E-mail: <%= user.email %></h2>
+                <img src="/images/users/<%= user.image %>" alt="<%= user.fullname %>">
+            </div>
+
+        </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

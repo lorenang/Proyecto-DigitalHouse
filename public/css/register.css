@@ -49,3 +49,9 @@
   a:hover {
     text-decoration: underline;
   }
+
+.form-register {
+  display: flex;
+  flex-direction: column;
+}
+
