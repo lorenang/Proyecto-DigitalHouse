@@ -1,10 +1,9 @@
 /**/
 :root {
     --gris-oscuro: #666;
-    --verde: #35803f;
-    --verde-claro: #6af24f;
+    --green: #9BCF53;
     --black: #000;
-    --white: #fff;
+    --white: #ffffff;
 
     --font-family: 'Roboto', sans-serif;
     --size-cuerpo: 12px;
@@ -18,9 +17,8 @@
     box-sizing: border-box;
     font-family: var(--font-family);
     font-size: 12px;
-    
-}
 
+}
 body {
     width: 100%;
     display: flex;
@@ -41,6 +39,7 @@ header {
     left: 0;
     width: 100%;
     flex-direction: column;
+    background-color: var(--green);
 }
 
 .top-header {
@@ -82,7 +81,7 @@ header {
 }
 
 .menu ul li a:hover {
-    color: var(--verde);
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -112,7 +111,7 @@ header {
 }
 
 .btn-search, .btn-new-product {
-    background-color: var(--verde);
+    background-color: var(--green);
     color: #fff;
     border: none;
     padding: 8px 10px;
@@ -121,7 +120,7 @@ header {
     margin: 5px;
 }
 .btn-new-product {
-    background-color: var(--verde);
+    background-color: var(--green);
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -146,7 +145,7 @@ main {
 
 /*FOOTER*/
 footer {
-    background-color: var(--verde);
+    background-color: var(--green);
     width: 100%;  
 }
 
@@ -189,10 +188,10 @@ footer {
 /*----------------------------------------*/
 
 @media (max-width: 720px) {
- header, .top-header, .search, .menu ul {
-    align-items: center;
-    flex-direction: column;
- }   
+    header, .top-header, .search, .menu ul {
+        align-items: center;
+        flex-direction: column;
+    }   
 }
 
 

@@ -2,7 +2,7 @@
 .shop {
     height: auto;
     width: 60%;
-    border: 2px solid var(--verde);
+    border: 2px solid var(--green);
     border-radius: 1%;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -31,7 +31,7 @@
 }
 
 .btn-delete {
-    background-color: var(--verde);
+    background-color: var(--green);
     color: #fff;
     border: none;
     padding: 10px 20px;
