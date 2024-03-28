@@ -9,18 +9,18 @@
             <h1>Detalles del Producto</h1>
 
             <div class="product-page">
-                <h2><%= product.name %></h2>
-                <p>Descripción: <%= product.description %></p>
-                <p>Categoría: <%= product.category %></p>
-                <p>Precio: <%= product.price %></p>
-                <p>Stock: <%= product.stock %></p>
-                <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+                <h2><%= product.producto_descripcion %></h2>
+                <p>Descripción: <%= product.producto_detalle %></p>
+                <p>Categoría: <%= product.categoria.categoria_descripcion %></p>
+                <p>Precio: <%= product.producto_precio %></p>
+                <p>Stock: <%= product.producto_stock %></p>
+                <img src="/images/<%= product.producto_imagen %>" alt="<%= product.producto_name %>">
             </div>
 
             <button onclick="agregarAlCarrito()" class="cart">Agregar al Carrito</button>
 
             <div class="related-products">
-                <h2>Productos Relacionados</h2>
+                <h2> Agregar aqui Productos Relacionados</h2>
             </div>
         </section>
     </main>
@@ -29,4 +29,3 @@
 
 </body>
 </html>
-    

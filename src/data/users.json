@@ -38,6 +38,38 @@
       "email": "lorena.natali18@gmail.com",
       "password": "$2b$10$pFAizfJBBjmxR63AkzmmK.Bmq47b6emqDS7MRf3Ud0LcZiNrJN5M2",
       "image": "profileImage-1706478731073-205217899.jpg"
+    },
+    {
+      "id": 6,
+      "fullname": "Matias Perez Cisneros",
+      "username": "matias123",
+      "email": "mjj_pc@hotmail.com",
+      "password": "$2b$10$s.ce1Rtk8fI2j6UshDxUneR3L8wRlkFYQVZF/K5bznnkAqqo.uczi",
+      "image": "profileImage-1708978543177-525711006.png"
+    },
+    {
+      "id": 7,
+      "fullname": "Georgina Sanmat",
+      "username": "gina123",
+      "email": "gina.sanmat@gmail.com",
+      "password": "$2b$10$AriQQefx/tNsIvYQgvkaRObVI9/81PVNl9wasGLW7snWP6i686vO.",
+      "image": "profileImage-1709912362060-933168321.png"
+    },
+    {
+      "id": 8,
+      "fullname": "santiago",
+      "username": "santiruu",
+      "email": "",
+      "password": "$2b$10$EBtDn0dzIWLr0VrQqfqEUe0jNSMQU1xGMsBCbvvbAssfkguZXSLv.",
+      "image": "profileImage-1710026861478-961598408.png"
+    },
+    {
+      "id": 9,
+      "fullname": "",
+      "username": "",
+      "email": "",
+      "password": "$2b$10$/7VTkJPnnmHMavDyCUVz4ek.gSKz9BajSnYr4C7WOeokV/zaYA/am",
+      "image": "profileImage-1710026975162-904118837.png"
     }
   ]
 }

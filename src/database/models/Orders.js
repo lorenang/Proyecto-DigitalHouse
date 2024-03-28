@@ -11,8 +11,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         order_total: {
             type: DataTypes.FLOAT,
-            allowNull: true
+            allowNull: false
         }
+    }, {
+        timestamps: false
     });
 
     Orders.associate = models => {
@@ -20,9 +22,13 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'user_id',
             as: 'user'
         });
-        Orders.belongsTo(models.OrdersStatus, {
-            foreignKey: 'orderStatus_id',
-            as: 'orderStatus'
+        Orders.belongsTo(models.OrderStatus, {
+            foreignKey: 'order_status_id',
+            as: 'status'
+        });
+        Orders.hasMany(models.OrderItem, {
+            foreignKey: 'order_id',
+            as: 'items'
         });
     };
 

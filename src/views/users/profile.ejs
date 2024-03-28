@@ -11,11 +11,18 @@
             <h1>DATOS DEL USUARIO</h1>
 
             <div class="product-page">
-                <h2>Nombre: <%= user.fullname %></h2>
+                <h2>Nombre: <%= user.user_fullName %></h2>
                 <h2>Usuario: <%= user.username %></h2>
-                <h2>E-mail: <%= user.email %></h2>
-                <img src="/images/users/<%= user.image %>" alt="<%= user.fullname %>">
+                <h2>E-mail: <%= user.user_email %></h2>
+                <img src="/images/<%= user.user_imagen %>" alt="<%= user.fullname %>">
             </div>
+            
+            <div class="botones">
+                <a href="/users/edituser/<%=user.user_id %>" class="buttonDecoration secondary">EDITAR DATOS</a>
+                <a href="/users/userlist" class="buttonDecoration secondary">Panel de control</a>
+                
+                    
+                
 
         </section>
     </main>

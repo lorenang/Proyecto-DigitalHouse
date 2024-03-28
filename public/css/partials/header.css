@@ -1,0 +1,61 @@
+/* Estilos del encabezado  */
+.top-header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.img-logo {
+    height: auto;
+    width: 80px;
+}
+
+.menu ul {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+.menu ul li {
+    text-align: center;
+}
+
+.menu ul li a {
+    color: var(--black);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu ul li a i {
+    color: var(--verde);
+    font-size: 18px;
+    margin: 5px;
+}
+
+.menu ul li a:hover {
+    color: var(--verde);
+}
+@media screen and (min-width: 768px) {
+    .top-header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .img-logo {
+        height: auto;
+        width: 120px;
+        margin-left: 20px;
+    }
+    .menu ul {
+        margin-right: 20px;
+    }
+    .menu ul li a {
+        font-size: 18px;
+    }
+}

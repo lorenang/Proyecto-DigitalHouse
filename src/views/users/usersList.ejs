@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/header.ejs') %>
+    
+    <main>
+        <section class="productos">
+            <div class="div_title">
+                <h1>Lista de USUARIOS</h1>
+            </div>
+            <div class="div-products">
+                <table>
+                    <thead>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                        <!-- <th>Stock</th> -->
+                        <!-- <th><th>Acciones</th></th> -->
+                    </thead>
+                    <tbody>
+                        <% users.forEach(user => { %>
+                            <tr>
+                                <td><img src="/images/<%= user.user_imagen %>" alt="<%= user.user_fullName %>" class="product-image"></td>
+                                <td><%= user.user_fullName %></td>
+                                <td> <%= user.user_email %></td>
+                                <td class="product_acciones">
+                                     <a href="/users/profile/<%= user.user_id %>"><button class="productacc"><i class="fa-solid fa-circle-info"></i></button></a>
+                                    <a href=/users/edituser/<%=user.user_id %>><button class="productacc"><i class="fa-solid fa-square-pen"></i></button></a>
+                                    <form action="/users/eliminar/<%=user.user_id%>" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este usuario?');">
+                                        <button class="productacc" type="submit" class="btn-delete-product"><i class="fa-solid fa-trash-can"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

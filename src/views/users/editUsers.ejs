@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+
+       
+        <form action="/users/edituser/<%= user.user_id %>" method="post" enctype="multipart/form-data">
+            <div class="div-form-create">
+                <h2>EDITAR USUARIO</h2>
+                <div>
+                    <label for="fullname">Nombre completo</label>
+                    <input class= <%= locals.errors && errors.fullname ? "input-error" : null %> type="text" id="fullname" name="fullname" placeholder="Nombre completo" value="<%= user.user_fullName %>">
+                    <% if (locals.errors && errors.fullname){ %>
+                    <span class="form-validationError"> <%= errors.fullname.msg %> </span>
+                    <% } %>
+                </div>
+                <div>
+                    <label for="username">Usuario</label>
+                    <input class= <%= locals.errors && errors.username ? "input-error" : null %> type="text" id="username" name="username" placeholder="Usuario" value="<%= user.username %>">
+                    <% if (locals.errors && errors.username){ %>
+                    <span class="form-validationError"> <%= errors.username.msg %> </span>
+                    <% } %>
+                </div>
+                <div>
+                    <label for="email">Correo electrónico</label>
+                    <input class= <%= locals.errors && errors.email ? "input-error" : null %> id="email" name="email" placeholder="Correo electrónico" value="<%= user.user_email %>">
+                    <% if (locals.errors && errors.email){ %>
+                    <span class="form-validationError"> <%= errors.email.msg %> </span>
+                    <% } %>
+                </div>
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input type="password" class= <%= locals.errors && errors.password ? "input-error" : null %> id="password" name="password" placeholder="Contraseña">
+                    <% if (locals.errors && errors.password){ %>
+                    <span class="form-validationError"> <%= errors.password.msg %> </span>
+                    <% } %>
+                </div>
+               
+                <div>
+                    <img src="/images/<%= user.user_imagen %>" alt="">
+                </div>
+                <div>
+                    <label for="userImage">Imagen de perfil</label>
+                    <input type="file" id="userImage" name="userImage" accept="image/*">
+                    <% if (locals.errors && errors.userImage){ %>
+                    <span class="form-validationError"> <%= errors.userImage.msg %> </span>
+                    <% } %>
+                </div>
+                <div class="div-button-submit">
+                    <button type="submit" class="btn-new-user">GUARDAR</button>
+                </div>
+            </div>
+        </form> 
+    </main>
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

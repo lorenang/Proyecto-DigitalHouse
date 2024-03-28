@@ -16,8 +16,8 @@
                     <p>Stock: <%= producto.producto_stock %></p>
                     
                     <div class="articulo-options">
-                        <a href="/details/<%= producto.producto_id %>"><i class="fa-solid fa-circle-info"></i></a>
-                        <a href="/editproduct/<%= producto.producto_id %>"><i class="fa-solid fa-square-pen"></i></i></a>
+                        <a href="/products/details/<%= producto.producto_id %>"><i class="fa-solid fa-circle-info"></i></a>
+                        <a href="/products/editproduct/<%= producto.producto_id %>"><i class="fa-solid fa-square-pen"></i></i></a>
                     </div>
                 </div>
             <% }); %>

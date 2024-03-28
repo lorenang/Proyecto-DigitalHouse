@@ -1,40 +1,42 @@
-{
-  "products": [
-    {
-      "id": 12,
-      "name": "probandosisis",
-      "description": "probando alta",
-      "category": "Ecologico",
-      "price": "12",
-      "stock": "1",
-      "image": "productImage-1703131714296.jpg"
-    },
-    {
-      "id": 13,
-      "name": "probando",
-      "description": "probando alta",
-      "category": "Ecologico",
-      "price": "56",
-      "stock": "1",
-      "image": "productImage-1703131693201.jpg"
-    },
-    {
-      "id": 14,
-      "name": "Herbicida",
-      "description": "a",
-      "category": "a",
-      "price": "78",
-      "stock": "7",
-      "image": "productImage-1703132329552.jpg"
-    },
-    {
-      "id": 15,
-      "name": "ultima prueba",
-      "description": "a",
-      "category": "a",
-      "price": "78",
-      "stock": "3",
-      "image": "productImage-1703132361617-812603675.jpg"
-    }
-  ]
-}
+[
+  {
+    "producto_id": 1,
+    "producto_descripcion": "Esplendor Verde",
+    "producto_stock": 20,
+    "producto_precio": "23461",
+    "producto_expirationDate": "2029-12-03",
+    "producto_detalle": "aaaaaaaaaaa",
+    "producto_imagen": "productImage-1703131693201.jpg",
+    "categoria_id": "2"
+  },
+  {
+    "producto_id": 2,
+    "producto_descripcion": "Herbicida Poderoso",
+    "producto_stock": 25,
+    "producto_precio": 25000,
+    "producto_expirationDate": "2029-01-01",
+    "producto_detalle": "Herbicida Atila de Afrasa es un herbicida sistémico no selectivo.",
+    "producto_imagen": "productImage-1703131693201.jpg",
+    "categoria_id": 2
+  },
+  {
+    "producto_id": 3,
+    "producto_descripcion": "Insecticida Guardián",
+    "producto_stock": 10,
+    "producto_precio": 25000,
+    "producto_expirationDate": "2029-01-01",
+    "producto_detalle": "Sustancia básica insecticida, acaricida y fungicida.",
+    "producto_imagen": "productImage-1703131693201.jpg",
+    "categoria_id": 1
+  },
+  {
+    "producto_id": 4,
+    "producto_descripcion": "Solución Potente",
+    "producto_stock": 10,
+    "producto_precio": 15000,
+    "producto_expirationDate": "2029-09-01",
+    "producto_detalle": "Solución nutricional con alto contenido en Potasio.",
+    "producto_imagen": "productImage-1703131693201.jpg",
+    "categoria_id": 4
+  }
+]

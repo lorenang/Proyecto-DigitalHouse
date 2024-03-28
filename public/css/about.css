@@ -1,0 +1,64 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+  }
+  
+  .team-member {
+    font-size: large;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  /* p {
+    color: #666;
+  } */
+  
+  /* Estilos para el encabezado y el pie de página */
+  header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  /* Estilos para enlaces */
+  a {
+    color: #009688;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .team-member img {
+    
+    display: block;
+    width: 200px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+    margin-bottom: 10px;
+    border-radius: 50%;
+  }
