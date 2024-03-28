@@ -12,7 +12,7 @@ const validacionesLogin  = [
     check("username").notEmpty().withMessage("El usuario no puede ser vacío"),
     check("password").isLength({ min: 6 }).withMessage("La contraseña debe tener un mínimo de 6 caracteres"),
     check("username").custom(async (value, { req }) => {
-        let user = await db.Users.findOne({ where: { username: value } }); 
+        let user = await db.Users.findOne({ where: { user_username: value } }); 
         if (!user) {
             throw new Error('Usuario no se encuentra registrado...');
         }
@@ -20,9 +20,9 @@ const validacionesLogin  = [
     }),
 
     check("password").custom(async (password, { req }) => {
-        let user = await db.Users.findOne({ where: { username: req.body.username } }); // Usa req.body.username para obtener el nombre de usuario
+        let user = await db.Users.findOne({ where: { user_username: req.body.username } }); // Usa req.body.username para obtener el nombre de usuario
         console.log("llega a la check de la pass")
-        if (!user || !(bcrypt.compareSync(password, user.password))) {
+        if (!user || !(bcrypt.compareSync(password, user.user_password))) {
             console.log("llega al compareSync")
             throw new Error("Contraseña incorrecta");
         }

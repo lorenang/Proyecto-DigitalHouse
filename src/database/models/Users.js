@@ -9,26 +9,32 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(150),
             allowNull: true
         },
-        username: {
-            type: DataTypes.STRING(50),
+        user_username: {
+            type: DataTypes.STRING(20),
+            allowNull: false
+        },
+        user_password: {
+            type: DataTypes.STRING(255),
             allowNull: false
         },
         user_email: {
-            type: DataTypes.STRING(150),
+            type: DataTypes.STRING(100),
             allowNull: true
         },
-        password: {
-            type: DataTypes.STRING(250),
+        user_image: {
+            type: DataTypes.STRING(255),
             allowNull: true
-        },
-        user_imagen: {
-            type: DataTypes.CHAR(250),
-            allowNull: true
-        }}, {
-            timestamps: false // Agregar esta opción para desactivar los timestamps
         }
-    );
+    }, {
+        timestamps: false
+    });
+
+    Users.associate = models => {
+        Users.belongsTo(models.Roles, {
+            foreignKey: 'role_id',
+            as: 'role'
+        });
+    };
 
     return Users;
 };
-

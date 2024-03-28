@@ -1,0 +1,134 @@
+/* Estilos del encabezado  */
+.top-header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.img-logo {
+    height: auto;
+    width: 80px;
+}
+
+.menu ul {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    justify-content: center;
+}
+
+.menu ul li {
+    text-align: center;
+}
+
+.menu ul li a {
+    color: var(--black);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* .icono-login {
+    border: 1px solid #00000069;
+    border-radius: 5px;
+} */
+
+.menu ul li a i {
+    color: var(--verde);
+    font-size: 18px;
+    margin: 5px;
+}
+
+.menu ul li a:hover {
+    color: var(--verde);
+}
+@media screen and (min-width: 768px) {
+    .top-header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .img-logo {
+        height: auto;
+        width: 120px;
+        margin-left: 20px;
+    }
+    .menu ul {
+        margin-right: 20px;
+    }
+    .menu ul li a {
+        font-size: 18px;
+    }
+}
+/*
+
+/* 
+/* Estilos del menú hamburguesa */
+/* .burger-menu {
+    display: none; /* Ocultamos el menú en pantallas grandes 
+} */
+/* 
+.menu-toggle {
+    border: none;
+    background-color: var(--white);
+    display: block; /* Mostramos el botón del menú en pantallas pequeñas 
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.menu-toggle i {
+    color: #000000;
+    font-size: 20px;
+    margin: 2px;
+}
+
+.menu {
+    display: none; /* Ocultamos el menú desplegable por defecto 
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #00ff00;
+}
+
+/* Estilos para pantallas pequeñas 
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        display: block; /* Mostramos el menú en pantallas pequeñas 
+    }
+
+    .menu {
+        position: absolute;
+        top: 60px; /* Ajusta según el espacio necesario 
+        left: 0;
+        padding: 20px;
+        width: 100%;
+        z-index: 1000; /* Asegura que esté por encima de otros elementos 
+    }
+
+    .menu.active {
+        display: block; /* Mostramos el menú desplegable cuando está activo 
+        position: relative;
+    }
+
+    .menu ul li {
+        margin-right: 0;
+    }
+} */
