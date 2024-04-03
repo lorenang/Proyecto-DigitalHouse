@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "PurumAgroInsumos",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -9,7 +9,7 @@ module.exports = {
   },
   "test": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "PurumAgroInsumos",
     "host": "127.0.0.1",
     "dialect": "mysql"
