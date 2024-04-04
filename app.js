@@ -3,21 +3,8 @@ const app = express();
 
 const multer = require('multer');
 const path = require('path');
-<<<<<<< HEAD
-const session= require('express-session');
-const sessionMiddleware = require ("./middlewares/sesionMiddleware");
-const cookies = require ("cookie-parser");
-const methodOverride = require('method-override');
-
-const mainRoutes = require('./routes/mainRoutes');
-const mainController = require('./controllers/mainController');
-const usersController= require('./controllers/usersController');
-const routerUser=require("./routes/userRoutes");
-
-=======
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
->>>>>>> df8ba24007e1ef329aaaf409fa4aae031cbbd659
 const bodyParser = require('body-parser');
 
 const mainRoutes = require('./src/routes/mainRoutes');
@@ -29,15 +16,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-<<<<<<< HEAD
-=======
 app.use(cookieParser());
 app.use(session({
     secret: 'tu_secreto_aqui',
     resave: false,
     saveUninitialized: true
 }));
->>>>>>> df8ba24007e1ef329aaaf409fa4aae031cbbd659
 
 // Configuración de Multer
 const storage = multer.diskStorage({
@@ -91,11 +75,6 @@ app.use((req, res, next) => {
 });
 
 const upload = multer({ storage: storage });
-<<<<<<< HEAD
-
-
-app.post('/productos/crear', upload.single('Image'), (req, res) => {
-=======
 const uploadUser = multer({ storage: storageUser });
 
 app.post('/user/register', uploadUser.single('profileImage'), (req, res) => {
@@ -111,7 +90,6 @@ app.post('/user/login', (req, res) => {
 app.post('/productos/crear', upload.single('productImage'), (req, res) => {
   // Establece el tipo de imagen como 'product' en la solicitud
   req.body.type = 'product';
->>>>>>> df8ba24007e1ef329aaaf409fa4aae031cbbd659
   console.log('Procesando creación de producto...');
   mainController.procesarCreate(req, res);
 });
