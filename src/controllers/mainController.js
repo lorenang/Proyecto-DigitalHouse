@@ -44,16 +44,7 @@ const sequelize = db.sequelize;
 
 
 const controller = {  
-    guestRoute: (req, res) => {
-        // Lógica para la ruta de huéspedes (accesible solo sin login)
-        res.render('guest-route');
-    },
-
-    userRoute: (req, res) => {
-        // Lógica para la ruta de usuarios (accesible solo con login)
-        res.render('user-route');
-    },
-
+    
     index: async (req, res) => {
         const productosdata = await db.Products.findAll();
         return res.render('index', { productosdata })
@@ -64,100 +55,7 @@ const controller = {
         // Pasa los datos de productos a la vista
         return res.render('products/products', { productosdata });
     },
-    profile: async(req, res) => {
-        const username = req.params.username;
-        // Aquí deberías obtener la información del producto según el id
-        const profile = await db.Users.findOne({ where: { user_username:username } }); 
-        // Renderiza la vista productDetail.ejs y pasa el objeto del producto
-        return res.render('users/profile', { profile });
-    },
-
-    login: (req, res) => {
-        return res.render('users/login')
-    },
-    procesarLogin: async (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            // Si hay errores de validación, renderiza nuevamente el formulario de registro con los errores
-            return res.render('users/login', { errors: errors.mapped(), old:req.body });
-        }
-        const { username, password, remember } = req.body;
-        const existingUser = await db.Users.findOne({ where: { user_username:username } });
-        if (existingUser) {
-            const isPasswordCorrect = bcrypt.compareSync(password, existingUser.user_password);
-            if (isPasswordCorrect) {
-                req.session.user = existingUser;
-                req.session.username = existingUser.user_username;
-                // Si el usuario marcó "recordarme", establecer una cookie
-                if (remember) {
-                    res.cookie('remember', 'true', { maxAge: 604800000 }); // 7 días en milisegundos
-                }
-                res.redirect(`/users/profile/${username}`);
-            } else {
-                res.redirect('/users/login');
-            }
-        } else {
-            res.redirect('/users/login');
-        }
-    },
-
-    register: (req, res) => {
-        return res.render('users/register')
-    },
-    procesarRegister: async (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            // Si hay errores de validación, renderiza nuevamente el formulario de registro con los errores
-            return res.render('users/register', { errors: errors.mapped(), old:req.body });
-        }
-        // Si no hay errores de validación, procede con el registro del usuario
-        const { fullname, username, email, password } = req.body;
-        let profileImage; // Variable para almacenar el nombre de la imagen de perfil
-        if (req.file) {
-            profileImage = req.file.filename;
-        } else {
-            // Si no se ha subido una imagen, utiliza la imagen por defecto
-            profileImage = 'user-default.png';
-        }
-        try {
-            // Verifica si el usuario ya existe
-            const existingUser = await db.Users.findOne({ where: { user_username: username } });
-            if (existingUser) {
-                return res.status(400).send('El usuario ya existe.');
-            }
-            // Aplicar el método hashSync para encriptar el password
-            const hashedPassword = bcrypt.hashSync(password, 10);
-            // Crear el nuevo usuario en la base de datos
-            await db.Users.create({
-                user_fullName: fullname,
-                user_username: username,
-                user_email: email,
-                user_password: hashedPassword,
-                user_image: profileImage,
-                role_id: 2,
-            });
-            // Redirigir al usuario a la página de inicio de sesión
-            res.redirect('/users/login');
-        } catch (error) {
-            // Manejar cualquier error que ocurra durante el proceso de registro
-            console.error('Error al registrar usuario:', error);
-            res.status(500).send('Se produjo un error al procesar el registro.');
-        }
-    },
-  
-    logout: (req, res) => {
-        req.session.destroy(err => {
-            if (err) {
-                console.error('Error al cerrar sesión:', err);
-            } else {
-                res.redirect('/users/login');
-            }
-        });
-    },  
-
-    carrito: (req, res) => {
-        return res.render('products/carritoDeCompras')
-    },
+    
     altaproducto: (req, res) => {
         return res.render('products/createProduct');
     },
@@ -181,14 +79,7 @@ const controller = {
         // const product = getProductById(productId); 
         return res.render('products/editProduct', { product });
     },
-    editUser: async (req, res) => {
-        const userId = req.params.id;
-        // Aquí deberías obtener la información del producto según el id
-        const user = await db.Users.findByPk(userId);
-        // const product = getProductById(productId); 
-        return res.render('users/editUsers', { user });
-    },
-
+    
     procesarCreate : async (req, res) => {
         const errors= validationResult(req);
 		if(errors.isEmpty()){
@@ -216,12 +107,7 @@ const controller = {
     
         
     },
-    userList: async (req, res) => {
-        // Lee el archivo JSON de productos
-        const users = await db.Users.findAll();
-        // Pasa los datos de productos a la vista
-        return res.render('users/usersList', { users });
-    },
+    
     // procesarCreate : async (req, res) => {
     //     // const errors= validationResult(req);
     //     try{
@@ -286,53 +172,7 @@ const controller = {
         return res.redirect('/products');
     },
 
-    edit: async (req, res) => {
-        try {
-            const { id } = req.params;
-            const user = await db.Users.findByPk(id);
-            res.render('users/editUsers', { user });
-        } catch (error) {
-            console.error('Error al mostrar el formulario de edición de usuario:', error);
-            res.status(500).send('Internal Server Error');
-        }
-    },
-    update: async (req, res) => {
-        try {
-            
-            const { id } = req.params;
-            const { fullname, username, email, password } = req.body;
-            const userImage = req.file;
     
-            let user_imagen = null;
-            if (userImage) {
-                user_imagen = userImage.filename;
-                // Lógica para manejar la actualización de la imagen del usuario
-            }
-            const hashedPassword = bcrypt.hashSync(password, 10);
-    
-            await Users.update({  
-                user_fullName: fullname,
-                user_username: username,
-                user_email: email,
-                user_password: hashedPassword,
-                user_image: user_imagen
-            }, { where: { user_id: id } });
-    
-            req.session.destroy(err => {
-                if (err) {
-                    console.error('Error al cerrar la sesión:', err);
-                    res.status(500).send('Internal Server Error');
-                } else {
-                    // alert("Los datos del usuario han sido modificados, por favor reinicia la sesion");
-                    res.redirect('/users/login');
-                }
-            });
-            // res.redirect('/users/profile/' + req.session.username);
-        } catch (error) {
-            console.error('Error al actualizar el usuario:', error);
-            res.status(500).send('Internal Server Error');
-        }
-    },
 
     // edit: async (req, res) => {
     //     try {
@@ -425,120 +265,6 @@ const controller = {
     aboutController: (req,res)=>{
         res.render(("about"))
     },
-
-    
-    userProcesarEliminar: function (req,res) {
-        let userId = req.params.id;
-        Users
-        .destroy({where: {user_id: userId}, force: true}) // force: true es para asegurar que se ejecute la acción
-        .then(()=>{
-            return res.redirect('/users/userlist')})
-        .catch(error => res.send(error)) 
-    },
-    
-    aboutController: (req,res)=>{
-        res.render(("about"))
-    },
-
-
-
-
-//OPCION 1 PROCESAREDIT NO FUNCIONA (TODAVIA)
-    // procesarEdit: async (req, res) => {
-    //     try {
-    //         const productId = req.params.id;
-    //         const { descripcion, detalle, category, precio, stock } = req.body;
-    //         const productImage = req.file;
-    
-    //         // Obtiene la información actual del producto
-    //         const product = await db.Productos.findByPk(productId);
-
-    //         // Actualiza los datos del producto
-    //         product.producto_descripcion = descripcion;
-    //         product.producto_detalle = detalle;
-    //         product.categoria_id = category;
-    //         product.producto_precio = precio;
-    //         product.producto = stock;
-    
-    //         // Actualiza la imagen si se proporciona una nueva
-    //         if (productImage) {
-    //             // Asigna el nombre de la nueva imagen al producto
-    //             product.producto_imagen = `productImage-${Date.now()}${path.extname(productImage.originalname)}`;
-    //             const newImagePath = path.join(__dirname, '../public/images/', product.producto_imagen);
-    //             fs.renameSync(productImage.path, newImagePath);
-    //         }
-    
-    //         // Lee el contenido actual del archivo JSON
-    //         const productosdata = await db.Productos.findAll();
-
-    //         // Busca el índice del producto en el array
-    //         const productIndex = productosdata.findIndex(item => item.producto_id === parseInt(productId));
-
-            
-    //         if (productIndex !== -1) {
-    //             // Actualiza el producto en el array de productos
-    //             productosdata[productIndex] = product;
-    
-    //             // Escribe el nuevo contenido al archivo JSON
-    //             fs.writeFileSync(productsFilePath, JSON.stringify(productosdata, null, 2));
-    
-    //             res.redirect('/products');
-    //         } else {
-    //             console.error('Producto no encontrado en el array de productos');
-    //             res.status(500).send('Error interno del servidor');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error al procesar la edición del producto:', error);
-    //         res.status(500).send('Error interno del servidor');
-    //     }
-
-    // },
-
-    // procesarEliminar: (req, res) => {
-    //     try {
-    //         const productId = req.params.id;
-    
-    //         // Obtiene la información actual del producto
-    //         const product = getProductById(productId);
-    
-    //         // Verifica si hay una imagen asociada al producto antes de intentar eliminarla
-    //         if (product && product.image) {
-    //             const imagePath = path.join(__dirname, '../public/images/', product.image);
-    
-    //             // Verifica si el archivo existe antes de intentar eliminarlo
-    //             if (fs.existsSync(imagePath)) {
-    //                 fs.unlinkSync(imagePath);
-    //                 console.log(`Archivo eliminado: ${imagePath}`);
-    //             } else {
-    //                 console.log(`El archivo no existe: ${imagePath}`);
-    //             }
-    //         }
-    
-    //         // Lee el contenido actual del archivo JSON
-    //         const productsData = getProducts();
-    
-    //         // Busca el índice del producto en el array
-    //         const productIndex = productsData.products.findIndex(item => item.id === parseInt(productId));
-    
-    //         if (productIndex !== -1) {
-    //             // Elimina el producto del array de productos
-    //             productsData.products.splice(productIndex, 1);
-    
-    //             // Escribe el nuevo contenido al archivo JSON
-    //             fs.writeFileSync(productsFilePath, JSON.stringify(productsData, null, 2));
-    
-    //             console.log(`Producto eliminado: ${productId}`);
-    //             res.redirect('/products');
-    //         } else {
-    //             console.error('Producto no encontrado en el array de productos');
-    //             res.status(500).send('Error interno del servidor');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error al procesar la eliminación del producto:', error);
-    //         res.status(500).send('Error interno del servidor');
-    //     }
-    // },
-
 }
 
 module.exports = controller;
