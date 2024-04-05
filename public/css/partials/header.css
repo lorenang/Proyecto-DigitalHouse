@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 20px;
     list-style: none;
     justify-content: center;
     margin: 5px;
@@ -41,6 +41,12 @@
 
 .menu ul li a:hover {
     color: var(--verde);
+}
+
+.username {
+    font-size: 14px !important;
+    font-style: italic;
+    text-decoration: underline !important;
 }
 @media screen and (min-width: 768px) {
     .top-header {
