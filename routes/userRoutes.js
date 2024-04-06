@@ -1,51 +1,45 @@
-const { Router } = require("express");
-const userController = require("../controllers/usersController");
-const {body} = require ("express-validator");
-const loginValidations = require ("../middlewares/loginMiddleware");
-const guestMiddleware = require ("../middlewares/invitadoMiddleware");
-const authMiddleware = require ("../middlewares/autorizacionMiddleware");
-const adminMiddleware = require("../middlewares/adminMiddleware");
-const registerValidations = require("../middlewares/registerMiddleware");
+const express = require('express');
+const router = express.Router();
 
-const path = require("path");
-const multer = require("multer");
-const routerUsers = Router();
+const usersController = require('../controllers/usersController');
+const { guestMiddleware, authMiddleware } = require('../middlewares/authMiddleware');
+const registerValidations= require('../middlewares/registerValidations');
+const validacionesLogin=require('../middlewares/loginValidations');
 
-// Multer - manejo del almacenamiento
-const storage = multer.diskStorage({
-	destination: (req , file , cb) => {
-		cb (null , path.resolve(__dirname , "../../public/images/user"));
-	},
-	filename: (req , file , cb) => {
-		cb (null , file.fieldname + "-" + Date.now() + path.extname(file.originalname))
-	}
-});
+// Rutas accesibles por cualquiera
+router.get('/guest-route', guestMiddleware, usersController.guestRoute);
+router.get('/login', guestMiddleware, usersController.login);
+router.get('/register', guestMiddleware, usersController.register);
+router.post('/',upload.single('userImage'),registerValidations, guestMiddleware, usersController.procesarRegister);
+router.get('/userlist', usersController.userList);
 
-// Instanciar multer para manejar los métodos
-const upload = multer ({ storage });
+// Rutas accesibles solo con login (usuarios)
+router.get('/user-route', authMiddleware, usersController.userRoute);
+router.get('/profile/:username', authMiddleware, usersController.profile);
+router.get('/carrito', authMiddleware, usersController.carrito);
+// router.get('/profile/edit/:id', authMiddleware, mainController.editUser);
+// router.put('/', authMiddleware, mainController.procesarEditUser); en desarrollo
 
-const routesUser = {
-    loginRoute: "/login",
-    registerRoute: "/register",
-    profileRoute: "/profile",
-	listUsersRoute: "/usersList",
-    logoutRoute: "/logout",
-    deleteRoute: "/delete/:id"
-};
 
-routerUsers.get(routesUser.loginRoute, guestMiddleware , userController.loginController);
-routerUsers.post(routesUser.loginRoute , loginValidations , userController.loginProcess);
+/*** EDIT ONE USER ***/
+// router.get('/:id/edit', mainController.editUser);
+// router.put('/:id', mainController.procesarEditUser);
 
-routerUsers.get(routesUser.profileRoute, authMiddleware , userController.profileController);
+/*** DELETE ONE USER***/
+// router.delete('/:id', mainController.destroy);
 
-routerUsers.get(routesUser.logoutRoute, userController.logoutController);
-routerUsers.get(routesUser.deleteRoute, userController.deleteController);
-routerUsers.delete(routesUser.deleteRoute, userController.destroyController);
+//prueba 22/3
+/*EDIT DE UN PRODUCTO*/
+router.get('/edituser/:id', authMiddleware, usersController.edit); 
+router.post('/edituser/:id', upload.single('userImage'),  usersController.update);
+/*prueba 21/3*/
+// router.get('/:id/edit', authMiddleware, mainController.edit);
+// router.post('/:id/profile', authMiddleware, mainController.update);
+router.post('/eliminar/:id', authMiddleware, usersController.userProcesarEliminar);
 
-// get-post form registración
-routerUsers.get(routesUser.registerRoute, guestMiddleware, userController.registerController);
-routerUsers.post(routesUser.registerRoute, upload.single("foto"), registerValidations, userController.addRegisterController);
- 
-routerUsers.get(routesUser.listUsersRoute, authMiddleware, adminMiddleware, userController.listUsersController);
+// router.put('/:id', mainController.procesarEditUser);
+router.get('/logout', usersController.logout);
+router.put('/',validacionesLogin, usersController.procesarLogin);
+// router.post('/producto/editar/:id', mainController.procesarEdit);
 
-module.exports = routerUsers;
+module.exports = router;

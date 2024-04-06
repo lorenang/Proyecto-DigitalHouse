@@ -43,6 +43,3 @@ router.put('/',validacionesLogin, usersController.procesarLogin);
 // router.post('/producto/editar/:id', mainController.procesarEdit);
 
 module.exports = router;
-
-
-

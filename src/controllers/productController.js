@@ -13,4 +13,3 @@ const moment = require('moment');
 
 const Categorias = db.Categorias;
 const Productos = db.Productos;
-
