@@ -7,16 +7,16 @@ const registerValidations= require('../middlewares/registerValidations');
 const validacionesLogin=require('../middlewares/loginValidations');
 
 // Rutas accesibles por cualquiera
-router.get('/guest-route', guestMiddleware, usersController.guestRoute);
-router.get('/login', guestMiddleware, usersController.login);
-router.get('/register', guestMiddleware, usersController.register);
+//router.get('/guest-route', guestMiddleware, usersController.guestRoute);
+router.get('/login', guestMiddleware, usersController.loginController);
+router.get('/register', guestMiddleware, usersController.registerController);
 router.post('/',upload.single('userImage'),registerValidations, guestMiddleware, usersController.procesarRegister);
-router.get('/userlist', usersController.userList);
+router.get('/userlist', usersController.listUsersController);
 
 // Rutas accesibles solo con login (usuarios)
-router.get('/user-route', authMiddleware, usersController.userRoute);
-router.get('/profile/:username', authMiddleware, usersController.profile);
-router.get('/carrito', authMiddleware, usersController.carrito);
+//router.get('/user-route', authMiddleware, usersController.userRoute);
+router.get('/profile/:username', authMiddleware, usersController.profileController);
+//router.get('/carrito', authMiddleware, usersController.carrito);
 // router.get('/profile/edit/:id', authMiddleware, mainController.editUser);
 // router.put('/', authMiddleware, mainController.procesarEditUser); en desarrollo
 
@@ -30,15 +30,15 @@ router.get('/carrito', authMiddleware, usersController.carrito);
 
 //prueba 22/3
 /*EDIT DE UN PRODUCTO*/
-router.get('/edituser/:id', authMiddleware, usersController.edit); 
-router.post('/edituser/:id', upload.single('userImage'),  usersController.update);
+//router.get('/edituser/:id', authMiddleware, usersController.edit); 
+//router.post('/edituser/:id', upload.single('userImage'),  usersController.update);
 /*prueba 21/3*/
 // router.get('/:id/edit', authMiddleware, mainController.edit);
 // router.post('/:id/profile', authMiddleware, mainController.update);
-router.post('/eliminar/:id', authMiddleware, usersController.userProcesarEliminar);
+router.post('/eliminar/:id', authMiddleware, usersController.deleteController);
 
 // router.put('/:id', mainController.procesarEditUser);
-router.get('/logout', usersController.logout);
+router.get('/logout', usersController.logoutController);
 router.put('/',validacionesLogin, usersController.procesarLogin);
 // router.post('/producto/editar/:id', mainController.procesarEdit);
 
