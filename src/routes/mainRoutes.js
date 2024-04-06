@@ -7,8 +7,8 @@ router.get('/', mainController.index);
 
 // Otras rutas...
 // router.get('/search', mainController.search); 
-router.get('/about', mainController.aboutController);
-router.get('/carrito', usersController.carrito);
+//router.get('/about', mainController.aboutController);
+//router.get('/carrito', usersController.carrito);
 module.exports = router;
 
 

@@ -1,5 +1,5 @@
 const { validationResult } = require ("express-validator");
-const User = require ("../models/User");
+const User = require ("../database/models/Users");
 let bcrypt = require ("bcryptjs");
 
 const userController = {
@@ -17,7 +17,7 @@ const userController = {
     },
 
     // Método para validar y procesar el login de usuarios
-    loginProcess: (req, res) => {
+    procesarLogin: (req, res) => {
       let errors = validationResult(req);
             
       if (! errors.isEmpty()) {
@@ -63,7 +63,7 @@ const userController = {
       });
     },
      //Controlador Ruta para almacenar el nuevo usuario
-    addRegisterController:(req, res) => {
+     procesarRegister:(req, res) => {
       let resultValidation = validationResult(req);
 
       if ( resultValidation.errors.length > 0){
