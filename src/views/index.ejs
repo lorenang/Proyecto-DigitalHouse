@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("partials/head") %>
-<body>
-    <%- include('partials/header') %>
-    <%- include('partials/search') %>
-    <main>
-        <section class="articulos-principales">
-            <% const lastThreeProducts = productosdata.slice(Math.max(productosdata.length - 3, 0)); %>
-            <% productosdata.forEach(producto => { %>
-                <div class="articulo-item">
-                    <img src="/images/<%= producto.producto_imagen %>" alt="<%= producto.producto_imagen %>" class="product-image">
-                    <h3><%= producto.producto_descripcion %></h3>
-                    <p><%= producto.producto_detalle %></p>
-                    <p>Precio: $<%= producto.producto_precio %></p>
-                    <p>Stock: <%= producto.producto_stock %></p>
-                    
-                    <div class="articulo-options">
-                        <a href="/products/details/<%= producto.producto_id %>"><i class="fa-solid fa-circle-info"></i></a>
-                        <a href="/products/editproduct/<%= producto.producto_id %>"><i class="fa-solid fa-square-pen"></i></i></a>
-                    </div>
-                </div>
-            <% }); %>
-            
-        </section>
-    </main>
-    <%- include('partials/footer') %>
-</body>
+    <body>
+        <%- include('partials/header') %>
+        <%- include('partials/search') %> 
+        <main>
+            <section class="articulos-principales">
+                <% if (productosdata.length === 0) { %>
+                    <p>No existen productos</p>
+                <% } else { %>
+                    <% const lastThreeProducts = productosdata.slice(Math.max(productosdata.length - 3, 0)); %>
+                    <% productosdata.forEach(producto => { %>
+                        <div class="articulo-item">
+                            <img src="/images/<%= producto.product_imagen %>" alt="<%= producto.product_imagen %>" class="product-image">
+                            <h3><%= producto.producto_descripcion %></h3>
+                            <p><%= producto.producto_detalle %></p>
+                            <p>Precio: $<%= producto.producto_precio %></p>
+                            <p>Stock: <%= producto.producto_stock %></p>
+                            
+                            <div class="articulo-options">
+                                <a href="/products/details/<%= producto.product_id %>"><i class="fa-solid fa-circle-info"></i></a>
+                                <a href="/products/editproduct/<%= producto.product_id %>"><i class="fa-solid fa-square-pen"></i></i></a>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } %>
+            </section>
+        </main> 
+        <%- include('partials/footer') %>
+    </body>
 </html>

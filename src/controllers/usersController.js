@@ -129,7 +129,8 @@ const userController = {
         if (user.categoria === 'cliente') {
           res.render('../views/users/profile.ejs', {
               title: 'Perfil de Cliente',
-              user: req.session.userLogged
+              user: req.session.userLogged,
+              currentPath: req.path
           });
         } else {
             res.render('../views/users/profileAdmin.ejs', {
