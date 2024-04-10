@@ -1,16 +1,24 @@
 module.exports = (sequelize, DataTypes) => {
-    const OrdersStatus = sequelize.define('OrdersStatus', {
-        orderStatus_id: {
+    const OrderStatus = sequelize.define('OrderStatus', {
+        order_status_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        orderStatus_descripcion: {
+        order_status_description: {
             type: DataTypes.STRING(50),
-            allowNull: true
+            allowNull: false
         }
+    }, {
+        timestamps: false
     });
 
-    return OrdersStatus;
-};
+    OrderStatus.associate = models => {
+        OrderStatus.hasMany(models.Orders, {
+            foreignKey: 'order_status_id',
+            as: 'orders'
+        });
+    };
 
+    return OrderStatus;
+};

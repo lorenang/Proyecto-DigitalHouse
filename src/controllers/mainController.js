@@ -1,39 +1,28 @@
 const fs = require('fs');
 const path = require('path');
-const {validationResult} = require ('express-validator');
+const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
-
-const productsFilePath = path.join(__dirname, '../data/product.json');
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const createValidations= require('../middlewares/createValidations')
-const db = require('../database/models');
-const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const moment = require('moment');
 const { log } = require('console');
 
+// const productsFilePath = path.join(__dirname, '../data/product.json');
+// const usersFilePath = path.join(__dirname, '../data/users.json');
+const createValidations = require('../middlewares/createValidations');
+
 // modelos
-const Categorias = db.Categorias;
+const db = require('../database/models'); // Aquí movemos la importación después de las demás importaciones
+const Categorias = db.Categories;
 const Orders = db.Orders;
-const OrdersItems = db.OrdersItems;
+const OrdersItems = db.OrderItem;
 const OrdersStatus = db.OrdersStatus;
-const Productos = db.Productos;
+const Productos = db.Products;
 const Users = db.Users;
 
 
 
-
 const controller = {  
-    guestRoute: (req, res) => {
-        // Lógica para la ruta de huéspedes (accesible solo sin login)
-        res.render('guest-route');
-    },
-
-    userRoute: (req, res) => {
-        // Lógica para la ruta de usuarios (accesible solo con login)
-        res.render('user-route');
-    },
-
+    
     index: async (req, res) => {
         
         return res.render('index')
@@ -203,14 +192,7 @@ const controller = {
         // const product = getProductById(productId); 
         return res.render('products/editProduct', { product });
     },
-    editUser: async (req, res) => {
-        const userId = req.params.id;
-        // Aquí deberías obtener la información del producto según el id
-        const user = await db.Users.findByPk(userId);
-        // const product = getProductById(productId); 
-        return res.render('users/editUsers', { user });
-    },
-
+    
     procesarCreate : async (req, res) => {
         const errors= validationResult(req);
 		if(errors.isEmpty()){
@@ -367,4 +349,3 @@ const controller = {
 }
 
 module.exports = controller;
-

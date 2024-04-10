@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/mainController');
-const { authMiddleware } = require('../middlewares/authMiddleware');
+const usersController = require('../controllers/usersController');
 // Rutas accesibles por cualquiera
 router.get('/', mainController.index);
 
 // Otras rutas...
 // router.get('/search', mainController.search); 
 router.get('/about', mainController.aboutController);
-router.get('/carrito',authMiddleware, mainController.carrito);
+router.get('/carrito', usersController.carrito);
 module.exports = router;
 
 

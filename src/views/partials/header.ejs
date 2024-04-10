@@ -30,5 +30,39 @@
             </nav>
         </div>
     </div>
-    
+
+    <div class="burger-menu">
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="/">INICIO</a></li>
+                <li><a href="/products">PRODUCTOS</a></li>
+                <li><a href="/about">NOSOTROS</a></li>
+                <li><a href="#">CONTACTO</a></li>
+                
+                <% if (user) { %>
+                    <li><a href="/users/profile/<%= user.user_username %>" class="username"><i class="fa-solid fa-circle-user"></i><%= user.user_username %></a></li>
+                    <li><a href="/carrito"><i class="fas fa-shopping-cart"></i></a></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                <% } else { %>
+                    <li class="icono-login">
+                        <a href="/users/login" >
+                            <i class="fas fa-sign-in-alt"></i>
+                        </a>
+                    </li>
+                    <li class="icono-register">
+                        <a href="/users/register"><i class="fas fa-user-plus"></i></a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </div>
 </header>
+
+
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+</script>

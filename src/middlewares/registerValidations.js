@@ -9,11 +9,11 @@ let registerValidations= [
     check('password').isLength({min: 8}).withMessage("La contraseña debe tener minimo 8 caracteres"),
     check('confirm_password').isLength({min: 8}).withMessage("La confirmacion de la contraseña debe tener minimo 8 caracteres"),
     check('confirm_password')
-    .isLength({ min: 8 }).withMessage("La confirmación de la contraseña debe tener mínimo 8 caracteres")
-    .custom((value, { req }) => {
-        if (value !== req.body.password) { 
-            throw new Error('Las contraseñas deben ser iguales');
-        }
+        .isLength({ min: 8 }).withMessage("La confirmación de la contraseña debe tener mínimo 8 caracteres")
+        .custom((value, { req }) => {
+            if (value !== req.body.password) { 
+                throw new Error('Las contraseñas deben ser iguales');
+            }
         return true;
     }),
     check('userImage').custom((value, {req})=>{
