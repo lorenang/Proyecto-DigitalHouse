@@ -13,14 +13,14 @@ const adminAuthMiddleware = require("../middlewares/adminAuthMiddleware");
 // 
 
 // Rutas accesibles por cualquiera
-router.get('/guest-route', guestMiddleware, mainController.guestRoute);
+// router.get('/' , guestMiddleware, mainController.guestRoute);
 router.get('/login', guestMiddleware, mainController.login);
 router.get('/register', guestMiddleware, mainController.register);
 router.post('/',upload.single('userImage'),registerValidations, guestMiddleware, mainController.procesarRegister);
 router.get('/userlist', adminAuthMiddleware.noLoggedAdmin, mainController.userList);
 // Rutas accesibles solo con login (usuarios)
 //router.get('/user-route', authMiddleware, usersController.userRoute);
-router.get('/profile/:username', authMiddleware, usersController.profileController);
+router.get('/profile/:username', authMiddleware, mainController.profile);
 //router.get('/carrito', authMiddleware, usersController.carrito);
 // router.get('/profile/edit/:id', authMiddleware, mainController.editUser);
 // router.put('/', authMiddleware, mainController.procesarEditUser); en desarrollo
@@ -40,11 +40,11 @@ router.get('/profile/:username', authMiddleware, usersController.profileControll
 /*prueba 21/3*/
 // router.get('/:id/edit', authMiddleware, mainController.edit);
 // router.post('/:id/profile', authMiddleware, mainController.update);
-router.post('/eliminar/:id', authMiddleware, usersController.deleteController);
+router.post('/eliminar/:id', authMiddleware, mainController.userProcesarEliminar);
 
 // router.put('/:id', mainController.procesarEditUser);
-router.get('/logout', usersController.logoutController);
-router.put('/',validacionesLogin, usersController.procesarLogin);
+router.get('/logout', mainController.logout);
+router.put('/',validacionesLogin, mainController.procesarLogin);
 // router.post('/producto/editar/:id', mainController.procesarEdit);
 
 module.exports = router;

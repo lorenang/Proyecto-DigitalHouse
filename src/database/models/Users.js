@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(150),
             allowNull: true
         },
-        user_username: {
+        username: {
             type: DataTypes.STRING(20),
             allowNull: false
         },
-        user_password: {
+        password: {
             type: DataTypes.STRING(255),
             allowNull: false
         },
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(100),
             allowNull: true
         },
-        user_image: {
+        user_imagen: {
             type: DataTypes.STRING(255),
             allowNull: true
         }
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Users.associate = models => {
         Users.belongsTo(models.Roles, {
-            foreignKey: 'role_id',
+            foreignKey: 'rol_id',
             as: 'role'
         });
     };

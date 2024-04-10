@@ -23,12 +23,12 @@ const rememberMiddleware = async (req, res, next) => {
         // Lógica para autenticar al usuario basándose en la cookie
         // Puedes reutilizar partes de tu lógica de login aquí
         const username = req.cookies.remember; // Recupera el nombre de usuario desde la cookie
-        const existingUser = await db.Users.findOne({ where: { user_username: username } });
+        const existingUser = await db.Users.findOne({ where: { username: username } });
         // const existingUser = getUserByUsername(username);
 
         if (existingUser) {
             req.session.user = existingUser;
-            req.session.username = existingUser.user_username;
+            req.session.username = existingUser.username;
         }
     }
 
